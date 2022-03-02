@@ -31,9 +31,24 @@ const displaySearchResult = (phones) => {
     }
 }
 const loadPhoneDetails = phoneId => {
-    // console.log(phoneId);
     const url = `https://openapi.programming-hero.com/api/phone/${phoneId}`;
     fetch(url)
         .then(res => res.json())
-        .then(data => console.log(data));
+        .then(data => displayPhoneDetails(data.data));
+}
+
+const displayPhoneDetails = phone => {
+    console.log(phone);
+    const phoneDetails = document.getElementById('phone-details');
+    const div = document.createElement('div');
+    div.classList.add('card');
+    div.innerHTML = `
+            <img src="${phone.image}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">${phone.name}</h5>
+                
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+    `;
+    phoneDetails.appendChild(div);
 }
