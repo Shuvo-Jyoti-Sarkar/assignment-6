@@ -1,5 +1,6 @@
+// Function to search phone
 const searchPhone = () => {
-    // Getting Input value using id
+    // Getting Input value of search field using id
     const searchField = document.getElementById('search-field');
     const searchText = searchField.value;
     // Clear search field
@@ -22,12 +23,18 @@ const displaySearchResult = (phones) => {
     searchResult.textContent = '';
     phoneDetails.textContent = '';
 
+    // Condition for which phone is not found
     if (phones.length == 0) {
         error.innerText = 'No phone is found having the given name';
     }
+    // Condition when phones are found
     else {
-        error.innerText = '';
-        for (const phone of phones) {
+        error.innerText = ''; // To clear previous error text
+        const slicedPhones = phones.slice(0, 20); //To show 20 results only
+
+        // Loop to get the details of each phone
+        for (const phone of slicedPhones) {
+
             // Creating new div with dynamic html elemnts
             const div = document.createElement('div');
             div.classList.add('col');
@@ -59,7 +66,6 @@ const loadPhoneDetails = phoneId => {
 
 // Function to display single phone details
 const displayPhoneDetails = phone => {
-    console.log(phone);
     const phoneDetails = document.getElementById('phone-details');
 
     phoneDetails.innerText = '';
