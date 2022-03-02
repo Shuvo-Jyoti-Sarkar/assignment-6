@@ -34,7 +34,7 @@ const displaySearchResult = (phones) => {
 
             // Adding html elements inside the div
             div.innerHTML = `
-        <div class="card h-25 w-75 mx-auto">
+        <div class="card h-25 w-50 mx-auto">
             <img src="${phone.image}" class="card-img-top" alt="...">
             <div class="card-body">
                 <h3 class="card-title">${phone.phone_name}</h3>
@@ -71,7 +71,7 @@ const displayPhoneDetails = phone => {
     // Adding html elements to div
     div.innerHTML = `
             <img src="${phone.image}" class="card-img-top" alt="...">
-            <div class="card-body">
+            <div class="card-body h-25 w-100 mx-auto">
                 <h3 class="card-title">${phone.name}</h3>
                 <h4>${phone.releaseDate ? phone.releaseDate : 'No release date found'}</h4>
                 <h4><strong>Basic Features:</strong></h4>
