@@ -13,11 +13,15 @@
 
 <body>
     <h1 class="text-center">Smartphone Gallery</h1>
+
     <!-- Phone search area -->
-    <div class="input-group mb-3 w-50  mx-auto">
-        <input id="search-field" type="text" class="form-control" placeholder="Give the name of your smartphone"
-            aria-label="Recipient's username" aria-describedby="button-addon2">
-        <button onclick="searchPhone()" class="btn btn-primary" type="button" id="button-search">Search</button>
+    <div class="container">
+        <div class="input-group mb-3 w-50  mx-auto">
+            <input id="search-field" type="text" class="form-control" placeholder="Give the name of your smartphone"
+                aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button onclick="searchPhone()" class="btn btn-primary" type="button" id="button-search">Search</button>
+        </div>
+        <h2 class="text-danger text-center" id="error"></h2>
     </div>
 
     <!-- Single Phone Details -->
