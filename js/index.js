@@ -17,19 +17,23 @@ const displaySearchResult = (phones) => {
     const searchResult = document.getElementById('search-result');
     const error = document.getElementById('error');
 
+    const phoneDetails = document.getElementById('phone-details');
     // Clearing previous search results
     searchResult.textContent = '';
+    phoneDetails.textContent = '';
 
     if (phones.length == 0) {
         error.innerText = 'No phone is found having the given name';
     }
-    for (const phone of phones) {
-        // Creating new div with dynamic html elemnts
-        const div = document.createElement('div');
-        div.classList.add('col');
+    else {
+        error.innerText = '';
+        for (const phone of phones) {
+            // Creating new div with dynamic html elemnts
+            const div = document.createElement('div');
+            div.classList.add('col');
 
-        // Adding html elements inside the div
-        div.innerHTML = `
+            // Adding html elements inside the div
+            div.innerHTML = `
         <div class="card h-25 w-75 mx-auto">
             <img src="${phone.image}" class="card-img-top" alt="...">
             <div class="card-body">
@@ -39,8 +43,9 @@ const displaySearchResult = (phones) => {
             <button class="btn btn-info" onclick="loadPhoneDetails('${phone.slug}')">Show Details</button>
         </div>    
         `;
-        // Adding new div inside parent div
-        searchResult.appendChild(div);
+            // Adding new div inside parent div
+            searchResult.appendChild(div);
+        }
     }
 }
 
@@ -57,6 +62,8 @@ const displayPhoneDetails = phone => {
     // console.log(phone);
     const phoneDetails = document.getElementById('phone-details');
 
+    phoneDetails.innerText = '';
+
     // Creating div to show phone details
     const div = document.createElement('div');
     div.classList.add('card');
@@ -66,7 +73,7 @@ const displayPhoneDetails = phone => {
             <img src="${phone.image}" class="card-img-top" alt="...">
             <div class="card-body">
                 <h3 class="card-title">${phone.name}</h3>
-                <h4>${phone.releaseDate}</h4>
+                <h4>${phone.releaseDate ? phone.releaseDate : 'No release date found'}</h4>
                 <h5><strong>Chipset:</strong> ${phone.mainFeatures.chipSet}</h5>
                 <h5><strong>Memory:</strong> ${phone.mainFeatures.memory}</h5>
                 <h5><strong>Storage:</strong> ${phone.mainFeatures.storage}</h5>
