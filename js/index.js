@@ -59,7 +59,7 @@ const loadPhoneDetails = phoneId => {
 
 // Function to display single phone details
 const displayPhoneDetails = phone => {
-    // console.log(phone);
+    console.log(phone);
     const phoneDetails = document.getElementById('phone-details');
 
     phoneDetails.innerText = '';
@@ -74,10 +74,20 @@ const displayPhoneDetails = phone => {
             <div class="card-body">
                 <h3 class="card-title">${phone.name}</h3>
                 <h4>${phone.releaseDate ? phone.releaseDate : 'No release date found'}</h4>
+                <h4><strong>Basic Features:</strong></h4>
                 <h5><strong>Chipset:</strong> ${phone.mainFeatures.chipSet}</h5>
                 <h5><strong>Memory:</strong> ${phone.mainFeatures.memory}</h5>
                 <h5><strong>Storage:</strong> ${phone.mainFeatures.storage}</h5>
                 <h5><strong>Display Size:</strong> ${phone.mainFeatures.displaySize}</h5>
+                <h4><strong>Sensors:</strong></h4>
+                <h5>${phone.mainFeatures.sensors}</h5>
+                <h4><strong>Others:</strong></h4>
+                <h5><strong>Bluetooth:</strong> ${phone.others ? phone.others.Bluetooth : 'Information unavilable'}</h5>
+                <h5><strong>GPS:</strong> ${phone.others ? phone.others.GPS : 'Information unavilable'}</h5>
+                <h5><strong>NFC:</strong> ${phone.others ? phone.others.NFC : 'Information unavilable'}</h5>
+                <h5><strong>Radio:</strong> ${phone.others ? phone.others.Radio : 'Information unavilable'}</h5>
+                <h5><strong>USB:</strong> ${phone.others ? phone.others.USB : 'Information unavilable'}</h5>
+                <h5><strong>WLAN:</strong> ${phone.others ? phone.others.WLAN : 'Information unavilable'}</h5>
             </div>
     `;
     phoneDetails.appendChild(div);
